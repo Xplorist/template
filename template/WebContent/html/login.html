@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>template模板</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+<!-- css -->
+<link rel="stylesheet" href="../css_lib/bootstrap.css">
+<link rel="stylesheet" href="../css_lib/bootstrap-responsive.css">
+<link rel="stylesheet" href="../css_code/login.css"> 
+</head>
+<body class="signin-bg" ng-app="myApp" ng-controller="myCtrl">
+	<div class="container-signin">
+      <div class="div-signin">
+        <h2 class="div-signin-heading">template模板</h2>
+        <input type="text" class="input-block-level" placeholder="username" ng-model="username">
+        <input type="password" class="input-block-level" placeholder="password" ng-model="password">
+        <button class="btn btn-large btn-primary" ng-click="clear()">清除</button>
+        <button class="btn btn-large btn-primary" style="float:right;" ng-click="loginx()">登陆</button>
+        
+      </div>
+    </div> <!-- /container -->
+</body>
+<!-- js -->
+<script type="text/javascript" src="../js_lib/jquery.js"></script>
+<script type="text/javascript" src="../js_lib/angular.js"></script>
+<script type="text/javascript" src="../js_lib/bootstrap.js"></script>
+<script type="text/javascript" src="../js_code/login.js"></script>
+</html>

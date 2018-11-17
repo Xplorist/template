@@ -1,0 +1,21 @@
+templateDevelop
+
+use template and framework to develop better software.
+
+java
+
+eclipse 模板化設置
+1.設置workspace encoding 為utf-8
+2.設置appearance 字體 類型：courier new 標準 10 ， 皮肤：dark
+3.設置web html,css,js,jsp 編碼 為utf-8
+4.設置java codeStyle code new java files格式如下：
+	${filecomment}
+	${package_declaration}
+	
+	${typecomment}
+	/**
+	 *
+	 * @author C3005579
+	 * @date ${date} ${time} 
+	 */
+	${type_declaration}
