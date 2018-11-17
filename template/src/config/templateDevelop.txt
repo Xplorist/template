@@ -19,3 +19,5 @@ eclipse 模板化設置
 	 * @date ${date} ${time} 
 	 */
 	${type_declaration}
+	
+	https://www.jianshu.com/p/15d26d2a2530
