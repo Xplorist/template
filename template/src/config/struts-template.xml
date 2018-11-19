@@ -4,8 +4,8 @@
 	"http://struts.apache.org/dtds/struts-2.3.dtd">
 <struts>
 <!-- ***************************template********************************** -->
-	<!-- struts模板 -->
-	<package name="template" namespace="template" extends="json-default">
+	<!-- AngularJS請求struts2模板 -->
+	<package name="template" namespace="/template" extends="json-default">
 		<interceptors>
 			<interceptor-stack name="defaultStack">
 				<interceptor-ref name="json">
@@ -19,14 +19,14 @@
 		<action name="BaseAction"
 			class="template.controller.BaseAction">
 			<result type="json" />
-			<allowed-methods>*</allowed-methods>
+			<allowed-methods>regex:.*</allowed-methods>
 		</action>
 		
 		<!-- test -->
 		<action name="TestAction"
 			class="template.controller.TestAction">
 			<result type="json" />
-			<allowed-methods>*</allowed-methods>
+			<allowed-methods>regex:.*</allowed-methods>
 		</action>
 	</package>
 </struts>

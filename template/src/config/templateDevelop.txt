@@ -19,5 +19,42 @@ eclipse 模板化設置
 	 * @date ${date} ${time} 
 	 */
 	${type_declaration}
-	
+5.git 入門指導url：	
 	https://www.jianshu.com/p/15d26d2a2530
+6.Struts2自定義配置文件方式：
+在web.xml中仿照以下方式寫，核心修改在于<init-param>中
+<filter>
+    <filter-name>struts2</filter-name>
+    <filter-class>
+         org.apache.struts2.dispatcher.filter.StrutsPrepareAndExecuteFilter
+      </filter-class>
+      <init-param>
+      	<param-name>config</param-name>
+      	<param-value>config/struts-category.xml,config/struts-template-test.xml</param-value>
+      </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>struts2</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  這里配置了兩個配置文件，第一個是核心，包含了必須include的xml，第二個為自定義新增的，裡面只有自己需要添加的內容，
+  如果需要再自定義配置文件，在web.xml文件<filter-class>的<param-value>中再新增一個自定義xml聲明就行了。
+7.git 常用命令：
+  git init
+  git clone -b 分支名 git@github.com:xplorist/template.git
+  git branch
+  git checkout
+  git add
+  git rm
+  git status
+  git commit -m ""
+  git push origin 分支名
+  git pull
+  git merge
+  git branch -d 分支名
+  git remote show origin
+  git push origin --delete 分支名
+  git branch -a 
+
+
+  

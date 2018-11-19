@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<!-- ***************修改了默認struts配置文件位置需引入相應的xml文件************************************** -->
+	<include file="struts-default.xml"></include>
+	<include file="struts-plugin.xml"></include>
+	<include file="json-default.xml"></include>
+
+	<!-- ***************************-配置常量-******************************************** -->
+	<constant name="struts.configuration.xml.reload" value="true" />
+	<constant name="struts.devMode" value="true" />
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+	<constant name="struts.multipart.maxSize" value="1599999999" />
+	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
+	
+	<package name="default" namespace="/" extends="struts-default">
+	<!-- test -->
+	</package>
+	
+</struts>

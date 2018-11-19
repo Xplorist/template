@@ -4,6 +4,7 @@ import java.util.List;
 
 import template.dao.TestDao;
 import template.model.SendDeptBean;
+import template.model.UserBean;
 
 /**
  *	測試action
@@ -22,11 +23,19 @@ public class TestAction extends BaseAction{
 		sendJson(jsonObject);
 	}
 	
-	// 模板action
+	// 查询分发单位list
 	public void querySendDept() {
 		List<SendDeptBean> sendDeptList = dao.querySendDeptList();
 		
 		jsonObject.put("sendDeptList", sendDeptList);
+		sendJson(jsonObject);
+	}
+	
+	// 查询用户list
+	public void queryUserList() {
+		List<UserBean> userList = dao.queryUserList();
+		
+		jsonObject.put("userList", userList);
 		sendJson(jsonObject);
 	}
 

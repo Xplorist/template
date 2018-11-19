@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import template.model.SendDeptBean;
+import template.model.UserBean;
 
 /**
  *	測試dao
@@ -69,7 +70,7 @@ public class TestDao extends BaseDao {
 					+" order by t.dept_id asc  \n";
 			
 			ps = conn.prepareStatement(sql);
-			ps.setString(1, "");
+			//ps.setString(1, "");
 			//ps.executeUpdate();
 			rs = ps.executeQuery();
 
@@ -94,6 +95,38 @@ public class TestDao extends BaseDao {
 		return result;
 	}
 
+	// 查询用户list
+	public List<UserBean> queryUserList() {
+		List<UserBean> result = new ArrayList<UserBean>();
+		//String flag = "1";// 1成功，0失敗
+		initResources();
+
+		try {
+			String sql = "SELECT t.* FROM user t ORDER BY t.pkid asc";
+			ps = conn.prepareStatement(sql);
+			//ps.setString(1, "");
+			//ps.executeUpdate();
+			rs = ps.executeQuery();
+
+			while (rs.next()) {
+				UserBean bean = new UserBean();
+				bean.setPkid(rs.getString("pkid"));
+				bean.setUsername(rs.getString("username"));
+				bean.setPassword(rs.getString("password"));
+				bean.setEmail(rs.getString("email"));
+				bean.setPhone(rs.getString("phone"));
+				result.add(bean);
+			}
+		} catch (SQLException e) {
+			//flag = "0";
+			errorFlag = "1";
+			e.printStackTrace();
+		}
+		closeResources();
+		
+		return result;
+	}
+	
 	public TestDao() {
 		super();
 	}

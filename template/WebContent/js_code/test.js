@@ -46,12 +46,14 @@ app.controller('myCtrl', function($scope, $http) {
 	
 	/********************-初始化数据聲明【頁面數據源】-***********************/
 	$scope.sendDeptList = [];// 分發單位list
+	$scope.userList = [];
 	
 	/********************-異步請求-***********************/
+	// 查询分发单位
 	$scope.querySendDept = function(){
 		$http({
 	        method: 'POST',
-	        url: 'TestAction!querySendDept.action',
+	        url: '../test/TestAction!querySendDept.action',
 	        data:{
 	        }
 	    }).then(function successCallback(response) {
@@ -79,9 +81,25 @@ app.controller('myCtrl', function($scope, $http) {
 	    });
 	}
 	
+	// 查询用户list
+	$scope.queryUserList = function(){
+		$http({
+			method: 'POST',
+			url: '../test/TestAction!queryUserList.action',
+			data:{
+			}
+		}).then(function successCallback(response) {
+			$scope.userList = response.data.userList;
+			alert($scope.userList);
+		}, function errorCallback(response) {
+			// 请求失败执行代码
+		});
+	}
+	
 	/********************-初始化頁面數據源-***********************/
 	$scope.initPageData = function(){
-		$scope.querySendDept();
+		//$scope.querySendDept();
+		$scope.queryUserList();
 	}
 	$scope.initPageData();
 	

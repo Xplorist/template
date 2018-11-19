@@ -21,7 +21,7 @@ public class DB_Connector
       Properties prop = ConfigReader.getProperties("config/db_oracle_template.properties");// Oracle連接
       driver = prop.getProperty("driver");
       url = prop.getProperty("url");
-      user = prop.getProperty("user");
+      user = prop.getProperty("username");
       password = prop.getProperty("password");
       Class.forName(driver);
     }

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+<title>文件上傳下載demo</title>
+<!-- Bootstrap core CSS -->
+<link rel="stylesheet" href="../css_lib/bootstrap.css">
+</head>
+<body ng-app="myApp" ng-controller="myController">
+
+	<input type="button" value="上傳圖示" href="#table-modal2"
+								data-toggle="modal" ng-click="btnUpClick('1')" /> 
+								
+	<div>
+		<a ng-click="downfile(file_save_name, file_save_path)">下載{{file_origin_name}}</a><br>
+		<a ng-click="delFile(file_save_name, file_save_path)">刪除{{file_origin_name}}</a>
+	</div>
+								
+	<div class="modal fade" id="table-modal2" tabindex="-1" role="dialog"
+			aria-labelledby="myModalLabel" aria-hidden="true"
+			style="overflow: hidden;">
+			<div class="modal-dialog" style="width: 600px; margin: 0 auto;">
+				<div class="modal-content modal-table">
+					<div class="modal-header">
+						<button id="addbtn" type="button" class="close"
+							data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h5 class="modal-title" style="color: red;">上傳附件</h5>
+					</div>
+					<div class="modal-body">
+						<input type="file" multiple="multiple" id="file" name="file" style="float: left;" />
+					</div>
+					<div class="modal-footer">
+						<button class="button green" ng-click="btnPicUploadClick()"
+							 data-dismiss="modal" style="height: 24px; width: 50px">確認</button>
+						<button data-dismiss="modal" class="button green"
+							style="height: 24px; width: 50px">返 回</button>
+					</div>
+				</div>
+			</div>
+	</div>
+		
+	<script type="text/javascript" src="../js_lib/jquery.js"></script>
+	<script type="text/javascript" src="../js_lib/angular.js"></script>
+	<script type="text/javascript" src="../js_lib/bootstrap.js"></script>
+	<script type="text/javascript" src="../js_lib/ajaxfileupload.js"></script>
+	<script type="text/javascript" src="../js_lib/jquery.fileDownload.js"></script>	
+	<script type="text/javascript" src="../js_code/FileUpDownDemo.js"></script>
+</body>
+</html>

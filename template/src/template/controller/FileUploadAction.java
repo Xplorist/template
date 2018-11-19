@@ -26,7 +26,9 @@ public class FileUploadAction extends ActionSupport {
 	private static final long serialVersionUID = 1L;
 	private JSONObject jsonObject = new JSONObject();
 	private String result; // 1成功，0失敗
-	private File file;
+	private File file;// 上傳文件
+	private String fileFileName;// 上傳文件的文件名稱
+	private String fileContentType;// 上傳文件的文件類型
 	private String file_origin_name;// 文件原始名稱
 	private String file_save_name;// 文件保存名稱
 	private String file_save_path;// 文件保存路徑
@@ -155,6 +157,22 @@ public class FileUploadAction extends ActionSupport {
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+
+	public String getFileFileName() {
+		return fileFileName;
+	}
+
+	public void setFileFileName(String fileFileName) {
+		this.fileFileName = fileFileName;
+	}
+
+	public String getFileContentType() {
+		return fileContentType;
+	}
+
+	public void setFileContentType(String fileContentType) {
+		this.fileContentType = fileContentType;
 	}
 
 }
