@@ -55,6 +55,12 @@ eclipse 模板化設置
   git remote show origin
   git push origin --delete 分支名
   git branch -a 
-
+8.ssh 代理設置：
+	在C:\Users\mcebgadmin\.ssh中創建config文件（沒有後綴名）內容如下：
+	Host github.com *.github.com
+	ProxyCommand connect -H http://10.244.186.81:8088 %h %p   
+	IdentityFile /C/Users/mcebgadmin/.ssh/id_rsa      
+	User git
+	具體ssh到github設置參考http://www.runoob.com/git/git-remote-repo.html
 
   

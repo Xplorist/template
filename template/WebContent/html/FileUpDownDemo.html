@@ -9,17 +9,95 @@
 <title>文件上傳下載demo</title>
 <!-- Bootstrap core CSS -->
 <link rel="stylesheet" href="../css_lib/bootstrap.css">
+ <!-- Custom styles for this template -->
+<link rel="stylesheet" href="../css_code/FileUpDownDemo.css">
 </head>
 <body ng-app="myApp" ng-controller="myController">
+	<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">template</a>
+      <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+      <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap">
+          <a class="nav-link" href="#">Sign out</a>
+        </li>
+      </ul>
+    </nav>
+    
+     <div class="container-fluid">
+		<div class="row">
+  			<nav class="col-md-2 d-none d-md-block bg-light sidebar">
+          <div class="sidebar-sticky">
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link active" href="#">
+                  <span data-feather="home"></span>
+                  Dashboard <span class="sr-only">(current)</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="file"></span>
+                  Orders
+                </a>
+              </li>
+            </ul>
 
-	<input type="button" value="上傳圖示" href="#table-modal2"
-								data-toggle="modal" ng-click="btnUpClick('1')" /> 
-								
-	<div>
-		<a ng-click="downfile(file_save_name, file_save_path)">下載{{file_origin_name}}</a><br>
-		<a ng-click="delFile(file_save_name, file_save_path)">刪除{{file_origin_name}}</a>
-	</div>
-								
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+              <span>Saved reports</span>
+              <a class="d-flex align-items-center text-muted" href="#">
+                <span data-feather="plus-circle"></span>
+              </a>
+            </h6>
+            <ul class="nav flex-column mb-2">
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="file-text"></span>
+                  Current month
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2">template</h1>
+            <div class="btn-toolbar mb-2 mb-md-0">
+              <div class="btn-group mr-2">
+                <button class="btn btn-sm btn-outline-secondary">Share</button>
+                <button class="btn btn-sm btn-outline-secondary">Export</button>
+              </div>
+              <button class="btn btn-sm btn-outline-secondary dropdown-toggle">
+                <span data-feather="calendar"></span>
+                This week
+              </button>
+            </div> 
+          </div>
+
+          <div class="table-responsive">
+            <div class="panel panel-default">
+				<div class="panel-body">
+					<input type="button" value="上傳文件" href="#table-modal2"
+						data-toggle="modal" ng-click="btnUpClick('1')" /> 
+				</div>						
+			</div>
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<h2 class="panel-title">文件列表</h2>
+				</div>	
+				<div class="panel-body">
+					<table class="table">
+					</table>
+					<a ng-click="downfile(file_save_name, file_save_path)">下載{{file_origin_name}}</a><br>
+					<a ng-click="delFile(file_save_name, file_save_path)">刪除{{file_origin_name}}</a>
+				</div>
+			</div>
+          </div>
+        </main>
+		</div>     
+    </div>
+		
+<!-- ********************-文件上传模态框-******************************************************* -->								
 	<div class="modal fade" id="table-modal2" tabindex="-1" role="dialog"
 			aria-labelledby="myModalLabel" aria-hidden="true"
 			style="overflow: hidden;">
@@ -34,10 +112,8 @@
 						<input type="file" multiple="multiple" id="file" name="file" style="float: left;" />
 					</div>
 					<div class="modal-footer">
-						<button class="button green" ng-click="btnPicUploadClick()"
-							 data-dismiss="modal" style="height: 24px; width: 50px">確認</button>
-						<button data-dismiss="modal" class="button green"
-							style="height: 24px; width: 50px">返 回</button>
+						<button class="button green" ng-click="btnPicUploadClick()" data-dismiss="modal">確認</button>
+						<button data-dismiss="modal" class="button green">返回</button>
 					</div>
 				</div>
 			</div>
