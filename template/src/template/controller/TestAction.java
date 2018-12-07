@@ -14,6 +14,7 @@ import template.model.UserBean;
 public class TestAction extends BaseAction{
 	private static final long serialVersionUID = 1L;
 	private TestDao dao = new TestDao();// dao
+	private String bill_type;// 單據類型
 	
 	// 模板action
 	public void template() {
@@ -25,7 +26,7 @@ public class TestAction extends BaseAction{
 	
 	// 查询分发单位list
 	public void querySendDept() {
-		List<SendDeptBean> sendDeptList = dao.querySendDeptList();
+		List<SendDeptBean> sendDeptList = dao.querySendDeptList(bill_type);
 		
 		jsonObject.put("sendDeptList", sendDeptList);
 		sendJson(jsonObject);
@@ -53,6 +54,14 @@ public class TestAction extends BaseAction{
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+
+	public String getBill_type() {
+		return bill_type;
+	}
+
+	public void setBill_type(String bill_type) {
+		this.bill_type = bill_type;
 	}
 	
 }

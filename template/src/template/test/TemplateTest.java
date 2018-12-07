@@ -1,10 +1,5 @@
 package template.test;
 
-import java.util.List;
-
-import template.dao.TestDao;
-import template.model.SendDeptBean;
-
 /**
  *	模板測試
  * @author C3005579
@@ -12,10 +7,10 @@ import template.model.SendDeptBean;
  */
 public class TemplateTest {
 	public static void main(String[] args) {
-		List<SendDeptBean> querySendDeptList = new TestDao().querySendDeptList();
+		/*List<SendDeptBean> querySendDeptList = new TestDao().querySendDeptList();
 		for(SendDeptBean bean : querySendDeptList) {
 			System.out.println(bean.getDept_name());
-		}
+		}*/
 	}
 }
 

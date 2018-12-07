@@ -31,6 +31,30 @@ public class LoginAction extends BaseAction {
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
+
+	public LoginDao getDao() {
+		return dao;
+	}
+
+	public void setDao(LoginDao dao) {
+		this.dao = dao;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
 	
 	
 }

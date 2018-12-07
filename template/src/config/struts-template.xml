@@ -6,14 +6,14 @@
 <!-- ***************************template********************************** -->
 	<!-- AngularJS請求struts2模板 -->
 	<package name="template" namespace="/template" extends="json-default">
-		<interceptors>
+		 <interceptors>
 			<interceptor-stack name="defaultStack">
 				<interceptor-ref name="json">
 					<param name="enableSMD">true</param>
 				</interceptor-ref>
 			</interceptor-stack>
 		</interceptors>
-		<default-interceptor-ref name="defaultStack" />
+		<default-interceptor-ref name="defaultStack" /> 
 
 		<!-- base -->
 		<action name="BaseAction"
@@ -25,6 +25,13 @@
 		<!-- test -->
 		<action name="TestAction"
 			class="template.controller.TestAction">
+			<result type="json" />
+			<allowed-methods>regex:.*</allowed-methods>
+		</action>
+		
+		<!-- login -->
+		<action name="LoginAction"
+			class="template.controller.LoginAction">
 			<result type="json" />
 			<allowed-methods>regex:.*</allowed-methods>
 		</action>

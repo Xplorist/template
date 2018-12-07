@@ -17,8 +17,8 @@ public class DB_Connector
   {
     try
     {
-      //Properties prop = ConfigReader.getProperties("config/db_mysql_template.properties");// MySQL連接
-      Properties prop = ConfigReader.getProperties("config/db_oracle_template.properties");// Oracle連接
+      Properties prop = ConfigReader.getProperties("config/db_mysql_template.properties");// MySQL連接
+      //Properties prop = ConfigReader.getProperties("config/db_oracle_template.properties");// Oracle連接
       driver = prop.getProperty("driver");
       url = prop.getProperty("url");
       user = prop.getProperty("username");

@@ -28,6 +28,7 @@ function angularJsHttpTemplate(){
             $scope.xxx = response.data.xxx;
         }, function errorCallback(response) {
             // 请求失败执行代码
+        	console.log(respose);
     });
 }
 
@@ -47,15 +48,21 @@ app.controller('myCtrl', function($scope, $http) {
 	$scope.loginx = function() {
 		$http({
 			method : 'POST',
-			url : 'xxx!xxx.action',
+			url : '../template/LoginAction!login.action',
 			data : {
 				'username' : $scope.username,
 				'password' : $scope.password
 			}
 		}).then(function successCallback(response) {
-			$scope.xxx = response.data.xxx;
+			if(response.data.result){
+				window.location.href = "MainFrame.html?username=" + $scope.username;
+			}else{
+				alert("please check username and password !");
+				$scope.password = "";
+			}
 		}, function errorCallback(response) {
 			// 请求失败执行代码
+			console.log(respose);
 		});
 	}	
 	

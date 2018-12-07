@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<title>template</title> 
+	<!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="../css_lib/bootstrap.css">
+    <!-- Custom styles for this template -->
+	<link rel="stylesheet" href="../css_code/MainFrame.css">
+</head>
+<body ng-app="myApp" ng-controller="myCtrl">
+<!-- **********************************-top navigation bar-************************************* -->
+	<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">template</a>
+      <span class="timestamp">{{username}},歡迎你</span>&nbsp;&nbsp;
+      <span class="timestamp">{{timestamp}}</span>
+      <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap">
+          <a class="nav-link" href="#" ng-click="signout()">Sign out</a>
+        </li>
+      </ul>
+    </nav>
+
+<!-- *************************************--********************************************************* -->
+    <div class="container-fluid">
+		<div class="row">
+  			<nav class="col-md-2 d-none d-md-block bg-light sidebar">
+	          <div class="sidebar-sticky">
+	            <ul class="nav flex-column">
+	              <li class="nav-item" ng-repeat="x in menuData">
+	                <a class="nav-link" href="#">
+	                  <span data-feather="file"></span>
+	                   {{x.menuName}}
+	                </a>
+	              </li>
+	            </ul>
+          	 </div>
+        	</nav>
+        
+	        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+	          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+	          </div>
+				
+	          <div class="iframeContainer">
+	          	<iframe src="Background.html" class="iframe" frameborder="no" border="0"></iframe>
+	          </div>
+	        </main>
+		</div>     
+    </div>
+	
+	<!-- Bootstrap AngularJs jQuery core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/javascript" src="../js_lib/jquery.js"></script>
+	<script type="text/javascript" src="../js_lib/angular.js"></script>
+	<script type="text/javascript" src="../js_lib/bootstrap.js"></script>
+	<!-- Icons -->
+	<script type="text/javascript" src="../js_lib/feather.min.js"></script>
+    <script>
+    	feather.replace()
+    </script>
+    <!-- Custom JavaScript for this template -->
+	<script type="text/javascript" src="../js_code/MainFrame.js"></script>
+</body>
+</html>

@@ -57,7 +57,7 @@ public class TestDao extends BaseDao {
 	}
 	
 	// 查詢分發單位
-	public List<SendDeptBean> querySendDeptList() {
+	public List<SendDeptBean> querySendDeptList(String bill_type) {
 		List<SendDeptBean> result = new ArrayList<SendDeptBean>();
 		//String flag = "1";// 1成功，0失敗
 		initResources();
@@ -65,12 +65,12 @@ public class TestDao extends BaseDao {
 		try {
 			String sql = "select t.*               \n"
 					+"  from ER_SEND_DEPT t    \n"
-					+" where t.bill_type = 'MR'\n"
+					+" where t.bill_type = ? \n"
 					+"   and t.is_use = 'Y'    \n"
 					+" order by t.dept_id asc  \n";
 			
 			ps = conn.prepareStatement(sql);
-			//ps.setString(1, "");
+			ps.setString(1, bill_type);
 			//ps.executeUpdate();
 			rs = ps.executeQuery();
 
@@ -112,9 +112,9 @@ public class TestDao extends BaseDao {
 				UserBean bean = new UserBean();
 				bean.setPkid(rs.getString("pkid"));
 				bean.setUsername(rs.getString("username"));
-				bean.setPassword(rs.getString("password"));
+				/*bean.setPassword(rs.getString("password"));
 				bean.setEmail(rs.getString("email"));
-				bean.setPhone(rs.getString("phone"));
+				bean.setPhone(rs.getString("phone"));*/
 				result.add(bean);
 			}
 		} catch (SQLException e) {
