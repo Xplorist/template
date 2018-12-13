@@ -62,5 +62,8 @@ eclipse 模板化設置
 	IdentityFile /C/Users/mcebgadmin/.ssh/id_rsa      
 	User git
 	具體ssh到github設置參考http://www.runoob.com/git/git-remote-repo.html
+9.找包工具：
+  java maven
+  js nodejs-npm
 
   
