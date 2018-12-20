@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="template.mapper.TemplateMapper">
+  		<!-- 查詢template list -->
+	  	<select id="queryTemplatList" resultType="template.model.TemplateBean">
+	  		select t.* from TEMPLATE t
+	  	</select>
+	  	
+	  	<!-- 新增template list  -->
+	  	<insert id="addTemplate">
+	  		insert into TEMPLATE t(t.name) values('x')
+	  	</insert>
+  </mapper>

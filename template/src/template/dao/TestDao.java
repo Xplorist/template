@@ -5,7 +5,9 @@ import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
 
+import template.mapper.TemplateMapper;
 import template.model.SendDeptBean;
+import template.model.TemplateBean;
 import template.model.UserBean;
 
 /**
@@ -123,6 +125,39 @@ public class TestDao extends BaseDao {
 			e.printStackTrace();
 		}
 		closeResources();
+		
+		return result;
+	}
+	
+	// MyBatis模板dao
+	public String template4MyBtis() {
+		String flag = "1";
+		initMyBatisResources();
+		try {
+			TemplateMapper mapper = sqlSession.getMapper(TemplateMapper.class);
+			//List<TemplateBean> list = mapper.queryTemplatList();
+			mapper.addTemplate();
+		} catch (Exception e) {
+			flag = "0";
+			e.printStackTrace();
+		}
+		closeMyBatisResources();
+		
+		return flag;
+	}
+	
+	// 查詢template list
+	public List<TemplateBean> queryTemplateList() {
+		List<TemplateBean> result = null;
+		initMyBatisResources();
+		try {
+			TemplateMapper mapper = sqlSession.getMapper(TemplateMapper.class);
+			result = mapper.queryTemplatList();
+		} catch (Exception e) {
+			//flag = "0";
+			e.printStackTrace();
+		}
+		closeMyBatisResources();
 		
 		return result;
 	}

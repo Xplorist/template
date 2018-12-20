@@ -4,6 +4,7 @@ import java.util.List;
 
 import template.dao.TestDao;
 import template.model.SendDeptBean;
+import template.model.TemplateBean;
 import template.model.UserBean;
 
 /**
@@ -24,6 +25,14 @@ public class TestAction extends BaseAction{
 		sendJson(jsonObject);
 	}
 	
+	// MyBatis模板
+	public void template4MyBatis() {
+		result = dao.template4MyBtis();
+		
+		jsonObject.put("result", result);
+		sendJson(jsonObject);
+	}
+	
 	// 查询分发单位list
 	public void querySendDept() {
 		List<SendDeptBean> sendDeptList = dao.querySendDeptList(bill_type);
@@ -38,6 +47,25 @@ public class TestAction extends BaseAction{
 		
 		jsonObject.put("userList", userList);
 		sendJson(jsonObject);
+	}
+	
+	// MyBatis模板
+	public void queryTemplateList() {
+		List<TemplateBean> templateList = dao.queryTemplateList();
+		
+		jsonObject.put("templateList", templateList);
+		sendJson(jsonObject);
+	}
+	
+	// MyBatis模板
+	public void queryTemplateList4Main() {
+		List<TemplateBean> templateList = dao.queryTemplateList();
+		
+		int count = 0;
+		for(TemplateBean bean : templateList) {
+			count++;
+			System.out.println("第" + count + "個name:" + bean.getName());
+		}
 	}
 
 	public TestAction() {

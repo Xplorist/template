@@ -7,7 +7,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Types;
 
+import org.apache.ibatis.session.SqlSession;
+
+import template.mapper.TemplateMapper;
 import util.db.DB_Connector;
+import util.db.SqlSessionFactoryUtil;
 
 public class BaseDao {
 	protected String errorFlag = null;
@@ -15,6 +19,7 @@ public class BaseDao {
 	protected PreparedStatement ps = null;
 	protected ResultSet rs = null;
 	protected CallableStatement proc = null;
+	protected SqlSession sqlSession = null;
 	
 	// 初始化dao變量
 	protected void initResources() {
@@ -92,5 +97,34 @@ public class BaseDao {
 		} 
 	     
 	    return flag;
+	}
+	
+	// 初始化MyBatis變量
+	protected void initMyBatisResources() {
+		sqlSession = SqlSessionFactoryUtil.openSqlSession();
+	}
+	
+	// 關閉MyBatis變量
+	protected void closeMyBatisResources() {
+		if(sqlSession != null) {
+			sqlSession.close();
+		}
+	}
+	
+	// MyBatis模板dao
+	public String template4MyBtis() {
+		String flag = "1";
+		initMyBatisResources();
+		try {
+			TemplateMapper mapper = sqlSession.getMapper(TemplateMapper.class);
+			//List<TemplateBean> list = mapper.queryTemplatList();
+			mapper.addTemplate();
+		} catch (Exception e) {
+			flag = "0";
+			e.printStackTrace();
+		}
+		closeMyBatisResources();
+		
+		return flag;
 	}
 }

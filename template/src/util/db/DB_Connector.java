@@ -3,7 +3,8 @@ package util.db;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.Properties;
+import java.util.ResourceBundle;
+
 import util.config.ConfigReader;
 
 public class DB_Connector
@@ -17,12 +18,12 @@ public class DB_Connector
   {
     try
     {
-      Properties prop = ConfigReader.getProperties("config/db_mysql_template.properties");// MySQL連接
-      //Properties prop = ConfigReader.getProperties("config/db_oracle_template.properties");// Oracle連接
-      driver = prop.getProperty("driver");
-      url = prop.getProperty("url");
-      user = prop.getProperty("username");
-      password = prop.getProperty("password");
+       ResourceBundle rb = ConfigReader.getProperties("config/db_mysql_template");// MySQL連接
+      // ResourceBundle rb = ConfigReader.getProperties("config/db_oracle_template");// Oracle連接
+      driver = rb.getString("driver");
+      url = rb.getString("url");
+      user = rb.getString("username");
+      password = rb.getString("password");
       Class.forName(driver);
     }
     catch (ClassNotFoundException e)

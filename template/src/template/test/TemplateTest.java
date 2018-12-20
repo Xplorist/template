@@ -4,6 +4,8 @@ import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import template.controller.TestAction;
+
 /**
  *	模板測試
  * @author C3005579
@@ -11,11 +13,7 @@ import java.util.Date;
  */
 public class TemplateTest {
 	public static void main(String[] args) {
-		/*List<SendDeptBean> querySendDeptList = new TestDao().querySendDeptList();
-		for(SendDeptBean bean : querySendDeptList) {
-			System.out.println(bean.getDept_name());
-		}*/
-		test();
+		new TestAction().queryTemplateList4Main();
 	}
 	
 	// test

@@ -57,6 +57,14 @@ public class BaseAction extends ActionSupport {
 		sendJson(jsonObject);
 	}
 	
+	// MyBatis模板
+	protected void template4MyBatis() {
+		result = dao.template4MyBtis();
+		
+		jsonObject.put("result", result);
+		sendJson(jsonObject);
+	}
+	
 	public BaseAction() {
 		super();
 	}

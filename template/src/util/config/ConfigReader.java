@@ -1,43 +1,17 @@
 package util.config;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.Properties;
+import java.util.ResourceBundle;
 
-public class ConfigReader
-{
-  public static String getPropertyByPath(String configPath, String property)
-  {
-    String configFilePath = ConfigReader.class.getClassLoader().getResource("/").getPath() + configPath;
-    Properties prop = new Properties();
-    try
-    {
-      BufferedReader bufReader = new BufferedReader(new FileReader(configFilePath));
-      prop.load(bufReader);
-    }
-    catch (IOException e)
-    {
-      e.printStackTrace();
-    }
-    String result = prop.getProperty(property);
-    
-    return result;
-  }
-  
-  public static Properties getProperties(String configPath)
-  {
-    String configFilePath = ConfigReader.class.getClassLoader().getResource("/").getPath() + configPath;
-    Properties prop = new Properties();
-    try
-    {
-      BufferedReader bufReader = new BufferedReader(new FileReader(configFilePath));
-      prop.load(bufReader);
-    }
-    catch (IOException e)
-    {
-      e.printStackTrace();
-    }
-    return prop;
-  }
+public class ConfigReader {
+	public static String getPropertyByPath(String configPath, String property) {
+		String result = ResourceBundle.getBundle(configPath).getString(property);
+
+		return result;
+	}
+
+	public static ResourceBundle getProperties(String configPath) {
+		ResourceBundle result = ResourceBundle.getBundle(configPath);
+
+		return result;
+	}
 }
